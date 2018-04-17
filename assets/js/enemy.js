@@ -1,5 +1,5 @@
 (function(w){
-    var gravity = 0.3,
+    var gravity = 0.4,
         C_W,C_H,
         scale = document.documentElement.clientWidth/320,//图像的缩放情况
         count = 1;//序列帧每行图片数
@@ -19,7 +19,6 @@
 
     Enemy.prototype = {
         init:function(img){
-            //动作序列设置
             //动作序列设置
             var data ={
                 "images":[img],
@@ -77,6 +76,8 @@
             return {
                 x:this.x,
                 y:this.y,
+                // w:this.width*scale,
+                // h:this.height*scale
                 w:this.width,
                 h:this.height
             }

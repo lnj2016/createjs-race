@@ -18,6 +18,8 @@
             this.bg = new createjs.Bitmap(img);
             this.copy_bg = new createjs.Bitmap(img);
             this._view.addChild(this.bg,this.copy_bg);
+            // this.bg.setBounds( 0,0,C_W,C_H );
+            // this.copy_bg.setBounds(0,-C_H,C_W,C_H );
             this.bg_height = this.bg.getBounds().height;
             this.bg.setTransform(0, 0, scale, scale);
             this.copy_bg.setTransform(0, 0, scale, scale);

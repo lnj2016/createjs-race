@@ -5,22 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <title>天降红包</title>
-    <style>
-        *{
-            padding:0;
-            margin:0;
-        }
-        body{
-            width:100vw;
-            height:100vh;
-        }
-    </style>
+    <title>race</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
 </head>
 <body>
     <div class="app">
-        <canvas id="canvas"></canvas>
+        <div class="index">
+            <img src="./assets/images/logo.png" alt="" class="logo absolute animated bounceInLeft">
+            <img src="./assets/images/title.png" alt="title" class="title absolute animated bounceInDown">
+            <img src="./assets/images/index_car.png" alt="car" class="car absolute animated bounceInRight">
+            <img src="./assets/images/baby.png" alt="" class="baby absolute bounce ">
+            <img src="./assets/images/btn_start.png" alt="btn_start" class="btn_start absolute">
+        </div>
+        <canvas id="canvas" class="absolute hide absolute"></canvas>
+        <div class="game_over_panel hide absolute">
+            <img src="./assets/images/avatar.png" alt="avatar" class="avatar">
+            <div class="game_over_top"></div>
+            <img src="./assets/images/fail_img.png" alt="game_over_img" class="game_over_img">
+            <img src="./assets/images/btn_replay.png" alt="btn_replay" class="btn_replay">
+            <img src="./assets/images/btn_share.png" alt="btn_share" class="btn_share">
+        </div>
+        <div class="share_wrap hide absolute">
+            <img src="./assets/images/share_img.png" alt="share_img" class="share_img absolute">
+        </div>
     </div>
+    <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/EaselJS/0.8.0/easeljs.min.js"></script>
     <script src="https://cdn.bootcss.com/tweenjs/0.6.2/tweenjs.min.js"></script>
     <script src="https://cdn.bootcss.com/PreloadJS/0.6.0/preloadjs.min.js"></script>
@@ -29,5 +39,19 @@
     <script src="./assets/js/enemy.js"></script>
     <script src="./assets/js/parking.js"></script>
     <script src="./assets/js/app.js"></script>
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+                };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
 </body>
 </html>
